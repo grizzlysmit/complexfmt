@@ -42,6 +42,7 @@ where
 
 and **`format_spec_for_T`** the `format_specifier` for the type **T**.
 
+**NB: I only accept 3 chars in the** _**three_char_cmplx_spec**_.
 
 To compile the the test program **testcmplx** just run 
 
