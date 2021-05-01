@@ -3,7 +3,7 @@ This is my formatter class for the {fmt} library soon to be std::format
 
 ## Licence
 
-I'm releasing this under the LGPL version 3 see the [LICENCE.md](LICENCE.md)  file, or COPYING for plain text
+I'm releasing this under the LGPL version 3 see the [LICENCE.md](LICENCE.md)  file, or [COPYING](COPYING) for plain text
 
 ## Spec/Usage 
 
