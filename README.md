@@ -13,6 +13,7 @@ id_continue       ::=  id_start | digit
 ```
 
 all standard except for `cmplx_format_spec` which is as follows
+
 ```
 cmplx_format_spec     ::= cmplx_form [ format_spec_for_T ]
 
@@ -42,3 +43,9 @@ where
 and **`format_spec_for_T`** the `format_specifier` for the type **T**.
 
 
+To compile the the test program **testcmplx** just run 
+
+```
+$ g++ -std=c++20 -o testcmplx testcmplx.cpp -lfmt
+```
+where `$` is your prompt or use some sort of make/build system like cmake or what ever.
