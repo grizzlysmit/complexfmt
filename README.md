@@ -55,4 +55,9 @@ To compile the the test program **testcmplx** just run
 ```
 $ g++ -std=c++20 -o testcmplx testcmplx.cpp -lfmt
 ```
+
+or
+```
+$ clang++ -std=c++20 -o testcmplx testcmplx.cpp -lfmt
+```
 where `$` is your prompt or use some sort of make/build system like cmake or what ever.
