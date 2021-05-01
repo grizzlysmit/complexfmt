@@ -38,7 +38,7 @@ bracket                ::= '@' | '~'
 
 where 
 
-  - `$` means expresion style (i.e. **num** **plus_or_minus** **num**_i_).
+  - `$` means expresion style (i.e. **num** **plus_or_minus** **num**_i_ ).
   - `,` means pair style      (i.e. (**num**, **num**) ).
   - `*` means star style      (i.e. **num** **plus_or_minus** **num** _*i_ ), some people like this apperently.
   - `_` space the `,` or `+` or `-`
