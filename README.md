@@ -29,7 +29,7 @@ three_char_cmplx_spec ::= [ style_spec ] three_char_cmplx_spec
                           | [ spacing ]  three_char_cmplx_spec
                           | [ bracket ]  three_char_cmplx_spec
 
-style_spec             ::= '$' | ',' | '*'
+style_spec             ::= '$' | ',' | '*' | '|'
 
 spacing                ::= '_' | ';'
 
