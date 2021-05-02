@@ -18,8 +18,8 @@
 #include <complex>
 #include <fmt/format.h>
 
-#ifndef COMPLEXFMT
-#define COMPLEXFMT
+#ifndef FMT_COMPLEXFMT_H_
+#define FMT_COMPLEXFMT_H_
 
 FMT_BEGIN_NAMESPACE
 
@@ -179,7 +179,7 @@ template<typename T, typename Char>
     };
 
 FMT_END_NAMESPACE
-#endif // COMPLEXFMT
+#endif // FMT_COMPLEXFMT_H_
  
  
 
