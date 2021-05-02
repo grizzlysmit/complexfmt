@@ -7,7 +7,7 @@
  *
  *        Version:  1.0
  *        Created:  2021-03-18 13:17:09
- *       Revision:  2
+ *       Revision:  3
  *       Compiler:  g++/clang++
  *
  *         Author:  Francis Grizzly Smit (FGJS), grizzly@smit.id.au
@@ -21,12 +21,12 @@
 #ifndef COMPLEXFMT
 #define COMPLEXFMT
 
-
+FMT_BEGIN_NAMESPACE
 
 template<typename T, typename Char>
-    class fmt::formatter<std::complex<T>, Char> : public fmt::formatter<T, Char> {
+    class formatter<std::complex<T>, Char> : public formatter<T, Char> {
         private:
-            enum class style { expr, pair, star };
+            enum class style { expr, pair, star, lisp };
             style style_ = style::expr;
             bool bracket = true;
             bool spaced = true;
@@ -47,6 +47,9 @@ template<typename T, typename Char>
                             break;
                         case '*':
                             style_ = style::star;
+                            break;
+                        case '|':
+                            style_ = style::lisp;
                             break;
                         case '@':
                             bracket = false;
@@ -69,57 +72,113 @@ template<typename T, typename Char>
                 return base::parse(ctx);
             }
             template<typename FormatContext>
-                auto format(const std::complex<T>& c, FormatContext& ctx){
+                auto format(const std::complex<T>& c, FormatContext& ctx) -> decltype(ctx.out()) {
                     auto out = ctx.out();
-                    if(bracket){
+                    if(style_ == style::lisp){
+                        out = format_to(out, "#C(");
+                        ctx.advance_to(out);
+                        bracket = true;
+                    }else if(bracket){
                         out = format_to(out, "(");
                         ctx.advance_to(out);
                     }
                     out = base::format(c.real(), ctx);
                     T imag = c.imag();
-                    char sep = '+';
-                    char trail[3];
+                    char sep[4], *sep_ptr = sep;
+                    char trail[3], *tptr = trail;
                     switch(style_){
                         case style::expr:
                             if(imag < 0){
-                                sep = '-';
+                                if(spaced){
+                                    *sep_ptr = ' ';
+                                    sep_ptr++;
+                                }
+                                *sep_ptr = '-';
+                                sep_ptr++;
+                                if(spaced){
+                                    *sep_ptr = ' ';
+                                    sep_ptr++;
+                                }
                                 imag = -imag;
+                            }else{
+                                if(spaced){
+                                    *sep_ptr = ' ';
+                                    sep_ptr++;
+                                }
+                                *sep_ptr = '+';
+                                sep_ptr++;
+                                if(spaced){
+                                    *sep_ptr = ' ';
+                                    sep_ptr++;
+                                }
                             }
-                            *trail = 'i';
-                            *(trail + 1) = '\0';
+                            *tptr = 'i';
+                            tptr++;
                             break;
                         case style::star:
                             if(imag < 0){
-                                sep = '-';
+                                if(spaced){
+                                    *sep_ptr = ' ';
+                                    sep_ptr++;
+                                }
+                                *sep_ptr = '-';
+                                sep_ptr++;
+                                if(spaced){
+                                    *sep_ptr = ' ';
+                                    sep_ptr++;
+                                }
                                 imag = -imag;
+                            }else{
+                                if(spaced){
+                                    *sep_ptr = ' ';
+                                    sep_ptr++;
+                                }
+                                *sep_ptr = '+';
+                                sep_ptr++;
+                                if(spaced){
+                                    *sep_ptr = ' ';
+                                    sep_ptr++;
+                                }
                             }
-                            *trail = '*';
-                            *(trail + 1) = 'i';
+                            *tptr = '*';
+                            tptr++;
+                            *tptr = 'i';
                             break;
                         case style::pair:
-                            sep = ',';
-                            *trail = '\0';
+                            *sep_ptr = ',';
+                            sep_ptr++;
+                            if(spaced){
+                                *sep_ptr = ' ';
+                                sep_ptr++;
+                            }
+                            //*tptr = '\0';
+                            //tptr++;
+                            break;
+                        case style::lisp:
+                            *sep_ptr = ',';
+                            sep_ptr++;
+                            if(spaced){
+                                *sep_ptr = ' ';
+                                sep_ptr++;
+                            }
+                            //*tptr = '\0';
+                            //tptr++;
                             break;
                         default:
                             throw("How did I get here invalid style");
                     }
-                    *(trail + 2) = '\0';
-                    if(spaced){
-                        if(style_ == style::pair){
-                            out = format_to(out, "{} ", sep);
-                        }else{
-                            out = format_to(out, " {} ", sep);
-                        }
-                    }else{
-                        out = format_to(out, "{}", sep);
-                    }
+                    *sep_ptr = '\0';
+                    *tptr = '\0';
+                    out = format_to(out, "{}", sep);
                     ctx.advance_to(out);
                     out = base::format(imag, ctx);
                     out = format_to(out, trail);
                     if(bracket) return format_to(out, ")");
-                    return format_to(out, "");
+                    return out;
                 }
     };
+
+FMT_END_NAMESPACE
 #endif // COMPLEXFMT
  
  
