@@ -30,7 +30,7 @@ template<typename T, typename Char>
             style style_ = style::expr;
             bool bracket = true;
             bool spaced = true;
-            using base = fmt::formatter<T, Char>;
+            using base = formatter<T, Char>;
             using Context_type = basic_format_parse_context<Char>;
         public:
             constexpr auto parse(Context_type& ctx) -> decltype(ctx.begin()) {
