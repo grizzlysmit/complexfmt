@@ -1,7 +1,7 @@
 This is my formatter class for the {fmt} library soon to be std::format
 =======================================================================
 
-- [This is my formatter class for the {fmt} library soon to be std::format](#readme)
+- [Table of contents](#readme)
   * [Licence](#licence)
   * [Spec-Usage](#spec-usage)
   * [Example code](#example-code)
