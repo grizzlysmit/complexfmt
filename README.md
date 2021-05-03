@@ -71,6 +71,8 @@ $ clang++ -std=c++20 -o testcmplx testcmplx.cpp -lfmt
 where `$` is your prompt or use some sort of make/build system like cmake or what ever.
 
 
+[Top](#this-is-my-formatter-class-for-the--fmt--library-soon-to-be-std--format)
+
 ## Example code
 
 ```
@@ -106,3 +108,5 @@ int main(int argc, char *argv[]){
     return 0;
 }
 ```
+
+[Top](#this-is-my-formatter-class-for-the--fmt--library-soon-to-be-std--format)
