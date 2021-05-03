@@ -54,7 +54,7 @@ where
   - `@` don't surround with brackets. 
   - `~` surround with brackets.
 
-and **`format_spec_for_T`** the `format_specifier` for the type **T**.
+and **`format_spec_for_T`** is the `format_specifier` for the type **T**.
 
 **NB: I only accept 3 chars in the** _**three_char_cmplx_spec**_.
 
