@@ -1,6 +1,13 @@
 This is my formatter class for the {fmt} library soon to be std::format
 =======================================================================
 
+- [This is my formatter class for the {fmt} library soon to be std::format](#this-is-my-formatter-class-for-the--fmt--library-soon-to-be-std--format)
+  * [Licence](#licence)
+  * [Spec/Usage](#spec-usage)
+  * [Example code](#example-code)
+
+
+
 ## Licence
 
 I'm releasing this under the LGPL version 3 see the [LICENCE.md](LICENCE.md)  file, or [COPYING](COPYING) for plain text
