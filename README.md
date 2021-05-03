@@ -12,7 +12,7 @@ This is my formatter class for the {fmt} library soon to be std::format
 
 I'm releasing this under the LGPL version 3 see the [LICENCE.md](LICENCE.md)  file, or [COPYING](COPYING) for plain text
 
-## Spec/Usage 
+## Spec-Usage 
 
 For std::complex<T> then the format spec is as follows: 
 ```
