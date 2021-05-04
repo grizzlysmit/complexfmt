@@ -78,6 +78,10 @@ template<typename T, typename Char>
                         out = format_to(out, "#C(");
                         ctx.advance_to(out);
                         bracket = true;
+                    }else if(style_ == style::pair){
+                        out = format_to(out, "(");
+                        ctx.advance_to(out);
+                        bracket = true;
                     }else if(bracket){
                         out = format_to(out, "(");
                         ctx.advance_to(out);
