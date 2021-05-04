@@ -1,0 +1,67 @@
+/*
+ * =====================================================================================
+ *
+ *       Filename:  colourfmt.h
+ *
+ *    Description: a {fmt} formatter to do expand colour  handling in {fmt}  
+ *
+ *        Version:  1.0
+ *        Created:  2021-05-05 07:30:28
+ *       Revision:  none
+ *       Compiler:  gcc
+ *
+ *         Author:  Francis Grizzly Smit (FGJS), grizzly@smit.id.au
+ *   Organization:  
+ *
+ * =====================================================================================
+ */
+#include <fmt/core.h>
+#include <fmt/format.h>
+#include <fmt/color.h>
+
+#ifndef FMTEXTRAS_COLOURFMT_H_
+#define FMTEXTRAS_COLOURFMT_H_
+
+FMT_BEGIN_NAMESPACE
+
+template<typename Char>
+    class formatter<text_style, Char> {
+        private:
+            using Context_type = basic_format_parse_context<Char>;
+        public:
+            constexpr auto parse(Context_type& ctx) -> decltype(ctx.begin()) {
+                auto it = ctx.begin(), end = ctx.end();
+                if(it != end && *it == ':') ++it;
+                while(it != end && *it != '}') ++it;
+                return it;
+            }
+            template<typename FormatContext>
+                auto format(const text_style& ts, FormatContext& ctx) -> decltype(ctx.out()) {
+                    auto out = ctx.out();
+                    // do some stuff here //
+                    bool has_style = false;
+                    basic_memory_buffer<Char> buf;
+                    if (ts.has_emphasis()) {
+                        has_style = true;
+                        auto emphasis = detail::make_emphasis<Char>(ts.get_emphasis());
+                        buf.append(emphasis.begin(), emphasis.end());
+                    }
+                    if (ts.has_foreground()) {
+                        has_style = true;
+                        auto foreground = detail::make_foreground_color<Char>(ts.get_foreground());
+                        buf.append(foreground.begin(), foreground.end());
+                    }
+                    if (ts.has_background()) {
+                        has_style = true;
+                        auto background = detail::make_background_color<Char>(ts.get_background());
+                        buf.append(background.begin(), background.end());
+                    }
+                    buf.push_back('\0');
+                    out = fmt::format_to(out, buf.data());
+                    return out;
+                }
+    };
+
+
+FMT_END_NAMESPACE
+#endif // FMTEXTRAS_COLOURFMT_H_
