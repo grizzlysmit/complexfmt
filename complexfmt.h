@@ -89,7 +89,7 @@ template<typename T, typename Char>
                     out = base::format(c.real(), ctx);
                     T imag = c.imag();
                     char sep[4], *sep_ptr = sep;
-                    char trail[3], *tptr = trail;
+                    char tail[3], *tptr = tail;
                     switch(style_){
                         case style::expr:
                             if(imag < 0){
@@ -147,6 +147,7 @@ template<typename T, typename Char>
                             *tptr = '*';
                             tptr++;
                             *tptr = 'i';
+                            tptr++;
                             break;
                         case style::pair:
                             *sep_ptr = ',';
@@ -173,10 +174,10 @@ template<typename T, typename Char>
                     }
                     *sep_ptr = '\0';
                     *tptr = '\0';
-                    out = format_to(out, "{}", sep);
+                    out = format_to(out, sep);
                     ctx.advance_to(out);
                     out = base::format(imag, ctx);
-                    out = format_to(out, trail);
+                    out = format_to(out, tail);
                     if(bracket) return format_to(out, ")");
                     return out;
                 }
