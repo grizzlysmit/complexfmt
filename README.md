@@ -48,7 +48,7 @@ where
   - `$` means expresion style (i.e. **num** **plus_or_minus** **num**_i_ ).
   - `,` means pair style      (i.e. (**num**, **num**) ).
   - `*` means star style      (i.e. **num** **plus_or_minus** **num** _*i_ ), some people like this apperently.
-  - `|` means lisp style      (i.e. #C(**num**, **num**) ), this syle is used in common lisp.
+  - `|` means lisp style      (i.e. #C(**num**, **num**) ), this syle is used in common lisp. **NB: this style overrides brackets i.e. `@` as no brackets makes no sense for this style**
   - `_` space the `,` or `+` or `-`
   - `;` don't space `,` or `+` or `-`
   - `@` don't surround with brackets. 
