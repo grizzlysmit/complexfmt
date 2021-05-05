@@ -97,6 +97,7 @@ There are 2 colour/style formatters
 
 1. for **`fmt::text_style`** to allow you to introduce a colour/style change anywhere in your `format_string`. 
 2. for **`fmtextras::reset_colour`** to put the colours etc back after changing using a **`fmt::text_style`** argument.
+3. for americans there is **`fmtexras::reset_color`** which is an alias to **`fmtextras::reset_colour`**.
 
 **NB:** The colour stuff 1. & 2. can work with the forms of fmt::format and fmt::print and friends but 3. 
 (i.e. **`fmtextras::reset_colour`**) is redundant as they do a reset any way at the end of their call, also 

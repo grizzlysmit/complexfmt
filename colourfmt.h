@@ -91,7 +91,7 @@ template<typename Char>
                 return it;
             }
             template<typename FormatContext>
-                auto format(const fmtextras::reset_colour& rc, FormatContext& ctx) -> decltype(ctx.out()) {
+                constexpr auto format(const fmtextras::reset_colour& rc, FormatContext& ctx) -> decltype(ctx.out()) {
                     auto out = ctx.out();
                     out = format_to(out, "\x1b[0m");
                     return out;
