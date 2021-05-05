@@ -67,6 +67,7 @@ FMT_END_NAMESPACE
 namespace fmtextras {
 
 struct reset_colour {
+    /*
     private:
         bool doit = false;
     public:
@@ -74,6 +75,7 @@ struct reset_colour {
         constexpr operator bool(){
             return doit;
         }
+        // */
 };
 
 using reset_color = reset_colour;
