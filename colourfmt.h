@@ -38,21 +38,16 @@ template<typename Char>
             template<typename FormatContext>
                 auto format(const text_style& ts, FormatContext& ctx) -> decltype(ctx.out()) {
                     auto out = ctx.out();
-                    // do some stuff here //
-                    bool has_style = false;
                     basic_memory_buffer<Char> buf;
                     if (ts.has_emphasis()) {
-                        has_style = true;
                         auto emphasis = detail::make_emphasis<Char>(ts.get_emphasis());
                         buf.append(emphasis.begin(), emphasis.end());
                     }
                     if (ts.has_foreground()) {
-                        has_style = true;
                         auto foreground = detail::make_foreground_color<Char>(ts.get_foreground());
                         buf.append(foreground.begin(), foreground.end());
                     }
                     if (ts.has_background()) {
-                        has_style = true;
                         auto background = detail::make_background_color<Char>(ts.get_background());
                         buf.append(background.begin(), background.end());
                     }
@@ -96,7 +91,7 @@ template<typename Char>
                 return it;
             }
             template<typename FormatContext>
-                auto format(const fmtextras::reset_colour& reset_colour, FormatContext& ctx) -> decltype(ctx.out()) {
+                auto format(const fmtextras::reset_colour& rc, FormatContext& ctx) -> decltype(ctx.out()) {
                     auto out = ctx.out();
                     out = format_to(out, "\x1b[0m");
                     return out;
