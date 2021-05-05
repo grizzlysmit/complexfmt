@@ -5,8 +5,8 @@
 
 - [Table of contents](#readme)
   * [Introduction](#Introduction)
-  * [The std::complex formatter](#the-stdcomplex-formatter)
       * [Licence](#licence)
+  * [The std::complex formatter](#the-stdcomplex-formatter)
       * [Spec-Usage](#spec-usage)
   * [The colour/style formatters](#the-colour-style-formatters)
   * [Example code](#example-code)
@@ -158,5 +158,7 @@ int main(int argc, char *argv[]){
 ### Results of compiling and running
 
 ![images/2021-05-05T19.08.54-fmtextas-testing-1920x1159.png](images/2021-05-05T19.08.54-fmtextas-testing-1920x1159.png)
+
+Either of the two compiler calls will work I did both to show, I have no idea about other complers.
 
 [Top](#readme)
