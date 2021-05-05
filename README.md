@@ -159,6 +159,6 @@ int main(int argc, char *argv[]){
 
 ![images/2021-05-05T19.08.54-fmtextas-testing-1920x1159.png](images/2021-05-05T19.08.54-fmtextas-testing-1920x1159.png)
 
-Either of the two compiler calls will work I did both to show, I have no idea about other complers.
+Either of the two compiler calls will work I did both to show, I have no idea about other compilers.
 
 [Top](#readme)
