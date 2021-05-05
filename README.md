@@ -78,6 +78,7 @@ where `$` is your prompt or use some sort of make/build system like cmake or wha
 
 ```
 #include "complexfmt.h"
+#include "colourfmt.h"
 #include "fmt/color.h"
 #include <ios>
 #include <vector>
@@ -93,7 +94,8 @@ int main(int argc, char *argv[]){
     using std::literals::string_literals::operator""s;
     using namespace fmt::literals;
     std::complex<double> z = 3.1415926536 + 2.71828182845i;
-    std::cout << fmt::format("z == {0:,0.10} == {0:@0.10}\nz == {0:$@;0.10} == {0:,;0.10}\nz == {0:*;0.10} == {0}"s, z) << std::endl;
+    std::cout << fmt::format("z == {0:,0.10} == {0:@0.10}\n{1}z == {0:$@;0.10}{2} == {0:,;0.10}\nz == {0:*;0.10} == {0}"s, z,
+            fg(fmt::color::green) | bg(fmt::color::blue) | fmt::emphasis::bold, fmt::reset_colour()) << std::endl;
     std::cout << fmt::format("z == {:@*0^{}.{}f}", z, 25, 20) << std::endl;
     std::cout << fmt::format("z == {:@ >{}.{}f}", z, 25, 20) << std::endl;
     

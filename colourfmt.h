@@ -62,6 +62,34 @@ template<typename Char>
                 }
     };
 
+struct reset_colour {
+    private:
+        bool doit = false;
+    public:
+        reset_colour() : doit(true) {};
+        constexpr operator bool(){
+            return doit;
+        }
+};
+
+template<typename Char>
+    class formatter<reset_colour, Char> {
+        private:
+            using Context_type = basic_format_parse_context<Char>;
+        public:
+            constexpr auto parse(Context_type& ctx) -> decltype(ctx.begin()) {
+                auto it = ctx.begin(), end = ctx.end();
+                if(it != end && *it == ':') ++it;
+                while(it != end && *it != '}') ++it;
+                return it;
+            }
+            template<typename FormatContext>
+                auto format(const reset_colour& reset_colour, FormatContext& ctx) -> decltype(ctx.out()) {
+                    auto out = ctx.out();
+                    out = format_to(out, "\x1b[0m");
+                    return out;
+                }
+    };
 
 FMT_END_NAMESPACE
 #endif // FMTEXTRAS_COLOURFMT_H_
