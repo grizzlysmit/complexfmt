@@ -1,5 +1,7 @@
-These are my formatter classes for the {fmt} library soon to be std::format
-===========================================================================
+{fmtextras}
+===========
+
+## These are my formatter classes for the {fmt} library soon to be std::format
 
 - [Table of contents](#readme)
   * [Introduction](Introduction)
