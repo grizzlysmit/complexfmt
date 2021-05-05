@@ -8,7 +8,8 @@
   * [The std::complex formatter](#the-stdcomplex-formatter)
       * [Licence](#licence)
       * [Spec-Usage](#spec-usage)
-      * [Example code](#example-code)
+  * [The colour/style formatters](the-colour-style-formatters)
+  * [Example code](#example-code)
 
 
 ## Introduction
@@ -19,18 +20,11 @@ There are three formatters so far in this library
 2. for **`fmt::text_style`** to allow you to introduce a colour/style change anywhere in your `format_string`. 
 3. for **`fmtextras::reset_colour`** to put the colours etc back after changing using a **`fmt::text_style`** argument.
 
-**NB:** The colour stuff 2. & 3. can work with the forms of fmt::format and fmt::print and friends but 3. 
-(i.e. **`fmtextras::reset_colour`**) is redundant as they do a reset any way at the end of their call, also 
-this works with **`operator""_format()`** where as there is no such fuctionality by default.
-
-**Also Note:** each colour/style change requires a format specifier `{}` will do and a coresponding argumet of 
-type **`fmt::text_style`**, be aware that the formater will ignore anything after the `:` as I don't need anything.
-
-## Licence
+### Licence
 
 I'm releasing this under the LGPL version 3 see the [LICENCE.md](LICENCE.md)  file, or [COPYING](COPYING) for plain text
 
-## The std::complex formatter
+### The std::complex formatter
 
 This is my formatter class for the {fmt} library soon to be std::format
 
@@ -93,6 +87,23 @@ or
 $ clang++ -std=c++20 -o testcmplx testcmplx.cpp -lfmt
 ```
 where `$` is your prompt or use some sort of make/build system like cmake or what ever.
+
+[Top](#readme)
+
+## The colour-style formatters
+
+There are 2 colour/style formatters
+
+1. for **`fmt::text_style`** to allow you to introduce a colour/style change anywhere in your `format_string`. 
+2. for **`fmtextras::reset_colour`** to put the colours etc back after changing using a **`fmt::text_style`** argument.
+
+**NB:** The colour stuff 1. & 2. can work with the forms of fmt::format and fmt::print and friends but 3. 
+(i.e. **`fmtextras::reset_colour`**) is redundant as they do a reset any way at the end of their call, also 
+this works with **`operator""_format()`** where as there is no such fuctionality by default.
+
+**Also Note:** each colour/style change requires a format specifier `{}` will do and a coresponding argumet of 
+type **`fmt::text_style`**, be aware that the formater will ignore anything after the `:` as I don't need anything.
+
 
 [Top](#readme)
 
