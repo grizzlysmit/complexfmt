@@ -110,7 +110,7 @@ type **`fmt::text_style`**, be aware that the formater will ignore anything afte
 
 ## Example code
 
-[godbolt](https://godbolt.org/z/4d9oerj46 target=blank)
+[godbolt](https://godbolt.org/z/4d9oerj46)
 
 ```
 #include "complexfmt.h"
