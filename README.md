@@ -19,9 +19,11 @@ There are three formatters so far in this library
 2. for **`fmt::text_style`** to allow you to introduce a colour/style change anywhere in your `format_string`. 
 3. for **`fmtextras::reset_colour`** to put the colours etc back after changing using a **`fmt::text_style`** argument.
 
-**NB:** the colour stuff 2. & 3. can work with the forms of fmt::format and fmt::print and friends but 3. 
+**NB:** The colour stuff 2. & 3. can work with the forms of fmt::format and fmt::print and friends but 3. 
 (i.e. **`fmtextras::reset_colour`**) is redundant as they do a reset any way at the end of their call, also 
 this works with **`operator""_format()`** where as there is no such fuctionality by default.
+**Also Note:** each colour/style change requires a format specifier `{}` will do and a coresponding argumet of 
+type **`fmt::text_style`**, be aware that the formater will ignore anything after the `:` as I don't need anything.
 
 ## Licence
 
