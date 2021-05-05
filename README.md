@@ -8,7 +8,7 @@
   * [The std::complex formatter](#the-stdcomplex-formatter)
       * [Licence](#licence)
       * [Spec-Usage](#spec-usage)
-  * [The colour/style formatters](the-colour-style-formatters)
+  * [The colour/style formatters](#the-colour-style-formatters)
   * [Example code](#example-code)
 
 
