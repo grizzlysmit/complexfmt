@@ -72,7 +72,7 @@ template<typename T, typename Char>
                 return base::parse(ctx);
             }
             template<typename FormatContext>
-                auto format(const std::complex<T>& c, FormatContext& ctx) -> decltype(ctx.out()) {
+                constexpr auto format(const std::complex<T>& c, FormatContext& ctx) -> decltype(ctx.out()) {
                     auto out = ctx.out();
                     if(style_ == style::lisp){
                         out = format_to(out, "#C(");
