@@ -109,8 +109,13 @@ type **`fmt::text_style`**, be aware that the formater will ignore anything afte
 [Top](#readme)
 
 ## Example code
+<script>
+new showdown.Converter({
+  openLinksInNewWindow: true,
+});
+</script>
 
-[godbolt](https://godbolt.org/z/4d9oerj46){:target="_blank" rel="noopener"}.
+[godbolt](https://godbolt.org/z/4d9oerj46)
 
 ```
 #include "complexfmt.h"
