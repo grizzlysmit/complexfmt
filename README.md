@@ -153,3 +153,9 @@ int main(int argc, char *argv[]){
 ```
 
 [Top](#readme)
+
+Results of compileing and running.
+
+![images/2021-05-05T19.08.54-fmtextas-testing-1920x1159.png](images/2021-05-05T19.08.54-fmtextas-testing-1920x1159.png)
+
+[Top](#readme)
