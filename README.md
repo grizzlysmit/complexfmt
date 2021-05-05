@@ -1,18 +1,35 @@
-This is my formatter class for the {fmt} library soon to be std::format
-=======================================================================
+These are my formatter classes for the {fmt} library soon to be std::format
+===========================================================================
 
 - [Table of contents](#readme)
-  * [Licence](#licence)
-  * [Spec-Usage](#spec-usage)
-  * [Example code](#example-code)
+  * [Introduction](Introduction)
+  * [The std::complex formatter](The-std--complex-formatter)
+      * [Licence](#licence)
+      * [Spec-Usage](#spec-usage)
+      * [Example code](#example-code)
 
 
+## Introduction
+
+There are three formatters so far in this library 
+
+1. for **`std::complex<T>`**.
+2. for **`fmt::text_style`** to allow you to introduce a colour/style change anywhere in your `format_string`. 
+3. for **`fmtextras::reset_colour`** to put the colours etc back after changing using a **`fmt::text_style`** argument.
+
+**NB:** the colour stuff 2. & 3. can work with the forms of fmt::format and fmt::print and friends but 3. 
+(i.e. **`fmtextras::reset_colour`**) is redundant as they do a reset any way at the end of their call, also 
+this works with **`operator""_format()`** where as there is no such fuctionality by default.
 
 ## Licence
 
 I'm releasing this under the LGPL version 3 see the [LICENCE.md](LICENCE.md)  file, or [COPYING](COPYING) for plain text
 
-## Spec-Usage 
+## The std::complex formatter
+
+This is my formatter class for the {fmt} library soon to be std::format
+
+### Spec-Usage 
 
 For std::complex<T> then the format spec is as follows: 
 ```
@@ -94,8 +111,10 @@ int main(int argc, char *argv[]){
     using std::literals::string_literals::operator""s;
     using namespace fmt::literals;
     std::complex<double> z = 3.1415926536 + 2.71828182845i;
-    std::cout << fmt::format("z == {0:,0.10} == {0:@0.10}\n{1}z == {0:$@;0.10}{2} == {0:,;0.10}\nz == {0:*;0.10} == {0}"s, z,
-            fg(fmt::color::green) | bg(fmt::color::blue) | fmt::emphasis::bold, fmt::reset_colour()) << std::endl;
+    std::cout << fmt::format("z == {0:,0.10} == {0:@0.10}\n{1}z == {0:$@;0.10} {3}=={4} {0:,;0.10}{2}\nz == {0:*;0.10} == {0}"s, z,
+            fg(fmt::color::green) | bg(fmt::color::red) | fmt::emphasis::bold, fmtextras::reset_colour(),
+            fg(fmt::color::blue) | bg(fmt::color::red) | fmt::emphasis::bold,
+            fg(fmt::color::yellow) | bg(fmt::color::red) | fmt::emphasis::bold) << std::endl;
     std::cout << fmt::format("z == {:@*0^{}.{}f}", z, 25, 20) << std::endl;
     std::cout << fmt::format("z == {:@ >{}.{}f}", z, 25, 20) << std::endl;
     

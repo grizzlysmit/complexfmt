@@ -62,6 +62,10 @@ template<typename Char>
                 }
     };
 
+FMT_END_NAMESPACE
+
+namespace fmtextras {
+
 struct reset_colour {
     private:
         bool doit = false;
@@ -72,8 +76,14 @@ struct reset_colour {
         }
 };
 
+using reset_color = reset_colour;
+
+} // namespace fmtextras //
+
+FMT_BEGIN_NAMESPACE
+
 template<typename Char>
-    class formatter<reset_colour, Char> {
+    class formatter<fmtextras::reset_colour, Char> {
         private:
             using Context_type = basic_format_parse_context<Char>;
         public:
@@ -84,7 +94,7 @@ template<typename Char>
                 return it;
             }
             template<typename FormatContext>
-                auto format(const reset_colour& reset_colour, FormatContext& ctx) -> decltype(ctx.out()) {
+                auto format(const fmtextras::reset_colour& reset_colour, FormatContext& ctx) -> decltype(ctx.out()) {
                     auto out = ctx.out();
                     out = format_to(out, "\x1b[0m");
                     return out;
