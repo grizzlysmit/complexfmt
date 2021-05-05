@@ -36,7 +36,7 @@ template<typename Char>
                 return it;
             }
             template<typename FormatContext>
-                auto format(const text_style& ts, FormatContext& ctx) -> decltype(ctx.out()) {
+                constexpr auto format(const text_style& ts, FormatContext& ctx) -> decltype(ctx.out()) {
                     auto out = ctx.out();
                     basic_memory_buffer<Char> buf;
                     if (ts.has_emphasis()) {
