@@ -110,8 +110,7 @@ type **`fmt::text_style`**, be aware that the formater will ignore anything afte
 
 ## Example code
 
-[godbolt](https://godbolt.org/z/4d9oerj46)
-<a href="https://godbolt.org/z/4d9oerj46" target="_blank">try in compiler explorer</a>
+[godbolt](https://godbolt.org/z/4d9oerj46){:target="_blank" rel="noopener"}
 
 ```
 #include "complexfmt.h"
