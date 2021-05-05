@@ -4,8 +4,8 @@
 ## These are my formatter classes for the {fmt} library soon to be std::format
 
 - [Table of contents](#readme)
-  * [Introduction](Introduction)
-  * [The std::complex formatter](The-std--complex-formatter)
+  * [Introduction](#Introduction)
+  * [The std::complex formatter](#The-std--complex-formatter)
       * [Licence](#licence)
       * [Spec-Usage](#spec-usage)
       * [Example code](#example-code)
