@@ -27,7 +27,7 @@ I'm releasing this under the LGPL version 3 see the [LICENCE.md](LICENCE.md)  fi
 
 ### The std::complex formatter
 
-This is my formatter class for the {fmt} library soon to be std::format
+This is my **`formatter<std::complex<T>, Char>`** class for the {fmt} library soon to be std::format
 
 ### Spec-Usage 
 
