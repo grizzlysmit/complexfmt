@@ -67,7 +67,7 @@ struct reset_colour {
         bool doit = false;
     public:
         reset_colour() : doit(true) {};
-        FMT_CONSTEXPR operator bool(){
+        constexpr operator bool(){
             return doit;
         }
         // */
