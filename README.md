@@ -31,7 +31,7 @@ This is my formatter class for the {fmt} library soon to be std::format
 
 ### Spec-Usage 
 
-For std::complex<T> then the format spec is as follows: 
+For **`std::complex<T>`** then the format spec is as follows: 
 ```
 replacement_field ::=  "{" [arg_id] [":" cmplx_format_spec] "}"
 arg_id            ::=  integer | identifier
