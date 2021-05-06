@@ -33,7 +33,7 @@ template<typename T, typename Char>
             using base = formatter<T, Char>;
             using Context_type = basic_format_parse_context<Char>;
         public:
-            constexpr auto parse(Context_type& ctx) -> decltype(ctx.begin()) {
+            FMT_CONSTEXPR auto parse(Context_type& ctx) -> decltype(ctx.begin()) {
                 auto it = ctx.begin(), end = ctx.end();
                 bool done = false;
                 if(it != end && *it == ':') ++it;
@@ -72,7 +72,7 @@ template<typename T, typename Char>
                 return base::parse(ctx);
             }
             template<typename FormatContext>
-                constexpr auto format(const std::complex<T>& c, FormatContext& ctx) -> decltype(ctx.out()) {
+                FMT_CONSTEXPR auto format(const std::complex<T>& c, FormatContext& ctx) -> decltype(ctx.out()) {
                     auto out = ctx.out();
                     if(style_ == style::lisp){
                         out = format_to(out, "#C(");
