@@ -92,57 +92,41 @@ template<typename T, typename Char>
                     char tail[3], *tptr = tail;
                     switch(style_){
                         case style::expr:
+                            if(spaced){
+                                *sep_ptr = ' ';
+                                sep_ptr++;
+                            }
                             if(imag < 0){
-                                if(spaced){
-                                    *sep_ptr = ' ';
-                                    sep_ptr++;
-                                }
                                 *sep_ptr = '-';
                                 sep_ptr++;
-                                if(spaced){
-                                    *sep_ptr = ' ';
-                                    sep_ptr++;
-                                }
                                 imag = -imag;
                             }else{
-                                if(spaced){
-                                    *sep_ptr = ' ';
-                                    sep_ptr++;
-                                }
                                 *sep_ptr = '+';
                                 sep_ptr++;
-                                if(spaced){
-                                    *sep_ptr = ' ';
-                                    sep_ptr++;
-                                }
+                            }
+                            if(spaced){
+                                *sep_ptr = ' ';
+                                sep_ptr++;
                             }
                             *tptr = 'i';
                             tptr++;
                             break;
                         case style::star:
+                            if(spaced){
+                                *sep_ptr = ' ';
+                                sep_ptr++;
+                            }
                             if(imag < 0){
-                                if(spaced){
-                                    *sep_ptr = ' ';
-                                    sep_ptr++;
-                                }
                                 *sep_ptr = '-';
                                 sep_ptr++;
-                                if(spaced){
-                                    *sep_ptr = ' ';
-                                    sep_ptr++;
-                                }
                                 imag = -imag;
                             }else{
-                                if(spaced){
-                                    *sep_ptr = ' ';
-                                    sep_ptr++;
-                                }
                                 *sep_ptr = '+';
                                 sep_ptr++;
-                                if(spaced){
-                                    *sep_ptr = ' ';
-                                    sep_ptr++;
-                                }
+                            }
+                            if(spaced){
+                                *sep_ptr = ' ';
+                                sep_ptr++;
                             }
                             *tptr = '*';
                             tptr++;
@@ -156,8 +140,6 @@ template<typename T, typename Char>
                                 *sep_ptr = ' ';
                                 sep_ptr++;
                             }
-                            //*tptr = '\0';
-                            //tptr++;
                             break;
                         case style::lisp:
                             *sep_ptr = ',';
@@ -166,8 +148,6 @@ template<typename T, typename Char>
                                 *sep_ptr = ' ';
                                 sep_ptr++;
                             }
-                            //*tptr = '\0';
-                            //tptr++;
                             break;
                         default:
                             throw("How did I get here invalid style");
