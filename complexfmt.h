@@ -134,13 +134,6 @@ template<typename T, typename Char>
                             tptr++;
                             break;
                         case style::pair:
-                            *sep_ptr = ',';
-                            sep_ptr++;
-                            if(spaced){
-                                *sep_ptr = ' ';
-                                sep_ptr++;
-                            }
-                            break;
                         case style::lisp:
                             *sep_ptr = ',';
                             sep_ptr++;
