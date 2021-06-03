@@ -1,7 +1,7 @@
 {fmtextras}
 ===========
 
-![fmtextras](https://img.shields.io/badge/{fmtextras}-blue?logoColor=green)
+![fmtextras](https://img.shields.io/badge/{fmtextras}-blue?textColor=green)
 
 ## These are my formatter classes for the {fmt} library soon to be std::format
 
