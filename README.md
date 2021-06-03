@@ -4,7 +4,6 @@
 ![fmtextras](https://img.shields.io/badge/{fmtextras}-blue?text-color=green)
 ![C++](https://img.shields.io/badge/C++-blue?text-color=green)
 ![fmt](https://img.shields.io/badge/{fmt}-green?text-color=red)
-![fmtextras](https://img.shields.io/badge/{fmtextras}-blue?text-color=green)
 
 ## These are my formatter classes for the {fmt} library soon to be std::format
 
