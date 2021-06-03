@@ -1,13 +1,13 @@
 {fmtextras}
 ===========
 
-![fmtextras](https://img.shields.io/badge/{fmtextras}-blue?text-color=green)
-![C++](https://img.shields.io/badge/C++-blue?text-color=green)
-![fmt](https://img.shields.io/badge/{fmt}-green?text-color=red)
+![fmtextras](https://img.shields.io/badge/{fmtextras}-blue?style=round)
+![C++](https://img.shields.io/badge/C++-blue?style=green)
+![fmt](https://img.shields.io/badge/{fmt}-green?style=red)
 
 ## These are my formatter classes for the {fmt} library soon to be std::format
 
-- [Table of contents](#readme)
+- [Table of contents](#readme)?te
   * [Introduction](#Introduction)
       * [Licence](#licence)
   * [The std::complex formatter](#the-stdcomplex-formatter)
