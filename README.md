@@ -1,9 +1,9 @@
 {fmtextras}
 ===========
 
-![fmtextras](https://img.shields.io/badge/{fmtextras}-blue?style=round)
-![C++](https://img.shields.io/badge/C++-blue?style=green)
-![fmt](https://img.shields.io/badge/{fmt}-green?style=red)
+[![fmtextras](https://img.shields.io/badge/{fmtextras}-cyan?style=round)](#readme)
+[![C++](https://img.shields.io/badge/C++-blue?style=green)](https://isocpp.org/)
+[![fmt](https://img.shields.io/badge/{fmt}-green?style=red)](https://github.com/fmtlib/fmt)
 
 ## These are my formatter classes for the {fmt} library soon to be std::format
 
