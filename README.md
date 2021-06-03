@@ -1,6 +1,8 @@
 {fmtextras}
 ===========
 
+![fmtextras](https://img.shields.io/badge/{fmtextras}-blue?logoColor=green)
+
 ## These are my formatter classes for the {fmt} library soon to be std::format
 
 - [Table of contents](#readme)
