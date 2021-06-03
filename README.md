@@ -7,7 +7,7 @@
 
 ## These are my formatter classes for the {fmt} library soon to be std::format
 
-- [Table of contents](#readme)?te
+- [Table of contents](#readme)
   * [Introduction](#Introduction)
       * [Licence](#licence)
   * [The std::complex formatter](#the-stdcomplex-formatter)
