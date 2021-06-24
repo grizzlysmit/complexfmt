@@ -53,6 +53,10 @@ int main(int argc, char *argv[]){
     std::cout << fmt::format("w == {thecomplex:|_{width}.{precis}}", "thecomplex"_a=w, "width"_a=20, "precis"_a=20) << std::endl;
     fmt::print(fg(fmt::color::green) | bg(fmt::color::blue) | fmt::emphasis::bold,
             "z == {thecomplex:|_{width}.{precis}}\n", "thecomplex"_a=z, "width"_a=20, "precis"_a=20);
+    /*
+    std::cout << "{startcolour}w == {thecomplex:|_{width}.{precis}}{endcolour}"_format("startcolour"_a=fg(fmt::color::green) | bg(fmt::color::brown) | fmt::emphasis::bold,
+            "thecomplex"_a=w, "width"_a=20, "precis"_a=20, "endcolour"_a=fmtextras::reset_colour()) << std::endl;
+    // */
     std::cout << "{}w == {:|_{}.{}}{}"_format(fg(fmt::color::green) | bg(fmt::color::brown) | fmt::emphasis::bold,
             w, 20, 20, fmtextras::reset_colour()) << std::endl;
 
