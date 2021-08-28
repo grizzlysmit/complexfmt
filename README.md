@@ -99,7 +99,7 @@ where `$` is your prompt or use some sort of make/build system like cmake or wha
 
 There are 2 colour/style formatters
 
-1. for **`fmt::text_style`** to allow you to introduce a colour/style change anywhere in your `format_string`. 
+1. for **`fmt::text_style`** to allow you to introduce a colour/style change anywhere in your **`format_string`**. 
 2. for **`fmtextras::reset_colour`** to put the colours etc back after changing using a **`fmt::text_style`** argument.
 3. for americans there is **`fmtexras::reset_color`** which is an alias to **`fmtextras::reset_colour`**.
 

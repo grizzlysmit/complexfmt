@@ -38,7 +38,7 @@ template<typename Char>
             template<typename FormatContext>
                 FMT_CONSTEXPR auto format(const text_style& ts, FormatContext& ctx) -> decltype(ctx.out()) {
                     auto out = ctx.out();
-                    basic_memory_buffer<Char> buf;
+                    basic_memory_buffer<Char> buf; // a {fmt} char buffer class //
                     if (ts.has_emphasis()) {
                         auto emphasis = detail::make_emphasis<Char>(ts.get_emphasis());
                         buf.append(emphasis.begin(), emphasis.end());

@@ -16,9 +16,12 @@
  * =====================================================================================
  */
 
+// {fmtextras} stuff //
 #include "complexfmt.h"
 #include "colourfmt.h"
+// {fmt} colour stuff //
 #include "fmt/color.h"
+// std stuff  //
 #include <ios>
 #include <vector>
 #include <numeric>
