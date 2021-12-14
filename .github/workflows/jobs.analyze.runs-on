@@ -1,0 +1,5 @@
+jobs:
+  analyze:
+    name: Analyze
+    runs-on: [self-hosted, ubuntu-latest]
+

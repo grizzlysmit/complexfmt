@@ -29,11 +29,21 @@
 #include <iostream>
 #include <fstream>
 #include <iomanip>
+#include "testcmplx.h"
 int main(int argc, char *argv[]){
     using std::complex_literals::operator""i;
     using std::complex_literals::operator""if;
     using std::complex_literals::operator""il;
     using std::literals::string_literals::operator""s;
+    //*
+    if(argc < 2){
+        // report version
+        std::cout << argv[0] << " Version " << testcmplx_VERSION_MAJOR << "."
+                  << testcmplx_VERSION_MINOR << "." << testcmplx_VERSION_PATCH << std::endl;
+        std::cout << "Usage: " << argv[0] << " number" << std::endl;
+        return 1;
+    }    
+    // */
     using namespace fmt::literals;
     std::complex<double> z = 3.1415926536 + 2.71828182845i;
     std::cout << fmt::format("z == {0:,0.10} == {0:@0.10}\n{1}z {5}=={1} {0:$@;0.10} {3}=={4} {0:,;0.10}{2}\nz == {0:*;0.10} == {0}"s, z,

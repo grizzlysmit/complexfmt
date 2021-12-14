@@ -1,0 +1,4 @@
+// the configured options and settings for testcmplx
+#define testcmplx_VERSION_MAJOR @testcmplx_VERSION_MAJOR@
+#define testcmplx_VERSION_MINOR @testcmplx_VERSION_MINOR@
+#define testcmplx_VERSION_PATCH @testcmplx_VERSION_PATCH@
