@@ -93,6 +93,17 @@ $ clang++ -std=c++20 -o testcmplx testcmplx.cpp -lfmt
 ```
 where `$` is your prompt or use some sort of make/build system like cmake or what ever.
 
+or 
+
+$ cmake -S . -B build # if you have just cloned from git assumming you are in the fmtextras dir 
+
+
+$ CC=gcc CXX=g++ cmake --build ./build --config Release
+
+or 
+
+$ CC=clang CXX=clang++ cmake --build ./build --config Release
+
 [Top](#readme)
 
 ## The colour-style formatters
