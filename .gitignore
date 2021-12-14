@@ -1,3 +1,5 @@
 # vi/vim buffer file #
 .*.swp
 testcmplx
+build/CMakeFiles/
+build/Makefile
