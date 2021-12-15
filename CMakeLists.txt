@@ -47,3 +47,7 @@ configure_file(testcmplx.h.in testcmplx.h)
 target_include_directories(testcmplx PUBLIC
                            "${PROJECT_BINARY_DIR}"
                            )
+
+enable_testing()
+
+add_test(NAME testcmplx COMMAND testcmplx  2 )
