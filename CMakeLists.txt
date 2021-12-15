@@ -20,6 +20,8 @@ target_include_directories(testcmplx PUBLIC
                            "${PROJECT_BINARY_DIR}"
                            )
 
+
+# testing stuff #                       
 enable_testing()
 
 add_test(NAME testcmplx COMMAND testcmplx  2 )
