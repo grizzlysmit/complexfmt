@@ -1,7 +1,7 @@
 # vi/vim buffer file #
 .*.swp
 testcmplx
-build/CMakeFiles/
-build/Makefile
-build/CMakeCache.txt
-build/cmake_install.cmake
+CMakeFiles/
+Makefile
+CMakeCache.txt
+cmake_install.cmake
