@@ -28,7 +28,7 @@ jobs:
       run: cmake -S ${{github.workspace}} -B ${{github.workspace}} 
     - name: Build
       # Build your program with the given configuration
-      run: cmake --build ${{github.workspace}} --config ${{env.BUILD_TYPE}}
+      run: CC=gcc-11 CXX=g++-11 cmake --build ${{github.workspace}} --config ${{env.BUILD_TYPE}}
 
     - name: Test
       working-directory: ${{github.workspace}}
