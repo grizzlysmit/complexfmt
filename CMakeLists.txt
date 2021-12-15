@@ -24,4 +24,5 @@ target_include_directories(testcmplx PUBLIC
 # testing stuff #                       
 enable_testing()
 
+# add test #
 add_test(NAME testcmplx COMMAND testcmplx  2 )
