@@ -15,6 +15,8 @@
  *
  * =====================================================================================
  */
+//#define FMT_USE_CONSTEXPR 0
+
 // std::complex<t> //
 #include <complex>
 #include <fmt/format.h>
@@ -23,6 +25,9 @@
 #define FMTEXTRAS_COMPLEXFMT_H_
 
 FMT_BEGIN_NAMESPACE
+
+#define FMTEXTRAS_CONSTEXPR FMT_CONSTEXPR
+//#define FMTEXTRAS_CONSTEXPR
 
 template<typename T, typename Char>
     class formatter<std::complex<T>, Char> : public formatter<T, Char> {
@@ -34,7 +39,7 @@ template<typename T, typename Char>
             using base = formatter<T, Char>;
             using Context_type = basic_format_parse_context<Char>;
         public:
-            FMT_CONSTEXPR auto parse(Context_type& ctx) -> decltype(ctx.begin()) {
+            FMTEXTRAS_CONSTEXPR auto parse(Context_type& ctx) -> decltype(ctx.begin()) {
                 auto it = ctx.begin(), end = ctx.end();
                 bool done = false;
                 if(it != end && *it == ':') ++it;
@@ -73,7 +78,7 @@ template<typename T, typename Char>
                 return base::parse(ctx);
             }
             template<typename FormatContext>
-                FMT_CONSTEXPR auto format(const std::complex<T>& c, FormatContext& ctx) -> decltype(ctx.out()) {
+                FMTEXTRAS_CONSTEXPR auto format(const std::complex<T>& c, FormatContext& ctx) -> decltype(ctx.out()) {
                     auto out = ctx.out();
                     if(style_ == style::lisp){
                         out = format_to(out, "#C(");
@@ -90,7 +95,7 @@ template<typename T, typename Char>
                     out = base::format(c.real(), ctx);
                     T imag = c.imag();
                     char sep[4], *sep_ptr = sep;
-                    char tail[3], *tptr = tail;
+                    char _tail[3], *tptr = _tail;
                     switch(style_){
                         case style::expr:
                             if(spaced){
@@ -148,10 +153,10 @@ template<typename T, typename Char>
                     }
                     *sep_ptr = '\0';
                     *tptr = '\0';
-                    out = format_to(out, sep);
+                    out = format_to(out, FMT_STRING("{}"), sep);
                     ctx.advance_to(out);
                     out = base::format(imag, ctx);
-                    out = format_to(out, tail);
+                    out = format_to(out, FMT_STRING("{}"), _tail);
                     if(bracket) return format_to(out, ")");
                     return out;
                 }

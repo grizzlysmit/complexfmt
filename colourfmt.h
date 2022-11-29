@@ -15,6 +15,8 @@
  *
  * =====================================================================================
  */
+//#define FMT_USE_CONSTEXPR 0
+
 #include <fmt/core.h>
 #include <fmt/format.h>
 #include <fmt/color.h>
@@ -24,19 +26,21 @@
 
 FMT_BEGIN_NAMESPACE
 
+#define FMTEXTRAS_CONSTEXPR FMT_CONSTEXPR
+
 template<typename Char>
     class formatter<text_style, Char> {
         private:
             using Context_type = basic_format_parse_context<Char>;
         public:
-            FMT_CONSTEXPR auto parse(Context_type& ctx) -> decltype(ctx.begin()) {
+            FMTEXTRAS_CONSTEXPR auto parse(Context_type& ctx) -> decltype(ctx.begin()) {
                 auto it = ctx.begin(), end = ctx.end();
                 if(it != end && *it == ':') ++it;
                 while(it != end && *it != '}') ++it;
                 return it;
             }
             template<typename FormatContext>
-                FMT_CONSTEXPR auto format(const text_style& ts, FormatContext& ctx) -> decltype(ctx.out()) {
+                FMTEXTRAS_CONSTEXPR auto format(const text_style& ts, FormatContext& ctx) -> decltype(ctx.out()) {
                     auto out = ctx.out();
                     basic_memory_buffer<Char> buf; // a {fmt} char buffer class //
                     if (ts.has_emphasis()) {
@@ -52,7 +56,7 @@ template<typename Char>
                         buf.append(background.begin(), background.end());
                     }
                     buf.push_back('\0');
-                    out = fmt::format_to(out, buf.data());
+                    out = fmt::format_to(out, FMT_STRING("{}"), buf.data());
                     return out;
                 }
     };
@@ -84,14 +88,14 @@ template<typename Char>
         private:
             using Context_type = basic_format_parse_context<Char>;
         public:
-            FMT_CONSTEXPR auto parse(Context_type& ctx) -> decltype(ctx.begin()) {
+            FMTEXTRAS_CONSTEXPR auto parse(Context_type& ctx) -> decltype(ctx.begin()) {
                 auto it = ctx.begin(), end = ctx.end();
                 if(it != end && *it == ':') ++it;
                 while(it != end && *it != '}') ++it;
                 return it;
             }
             template<typename FormatContext>
-                FMT_CONSTEXPR auto format(const fmtextras::reset_colour& rc, FormatContext& ctx) -> decltype(ctx.out()) {
+                FMTEXTRAS_CONSTEXPR auto format(const fmtextras::reset_colour& rc, FormatContext& ctx) -> decltype(ctx.out()) {
                     auto out = ctx.out();
                     out = format_to(out, "\x1b[0m");
                     return out;
