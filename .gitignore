@@ -7,3 +7,6 @@ testcmplx
 #cmake_install.cmake
 #Testing/
 #CTestTestfile.cmake
+CMakeFiles/testcmplx.dir/depend.internal
+CMakeFiles/testcmplx.dir/testcmplx.cpp.o.d
+build/CMakeFiles/testcmplx.dir/depend.internal
